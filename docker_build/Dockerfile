@@ -22,4 +22,5 @@ RUN conda install numpy scipy libpng freetype
 RUN git clone https://github.com/niknow/matplotlib.git --branch spherical-polygon --single-branch
 RUN cd /matplotlib/ && python setup.py build && python setup.py install
 
-#CMD [ "/bin/bash" ]
+ADD demonstration.py /demonstration/
+RUN cd /demonstration/ && python demonstration.py
