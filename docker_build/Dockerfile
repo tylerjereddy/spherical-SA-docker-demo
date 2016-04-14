@@ -3,11 +3,11 @@ FROM ubuntu:14.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-	g++ \
-	gcc \
 	git \
-	pkg-config \
 	wget 
+
+RUN apt-get build-dep -y \
+	python-matplotlib
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.0.5-Linux-x86_64.sh && \
